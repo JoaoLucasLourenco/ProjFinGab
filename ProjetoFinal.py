@@ -1,4 +1,7 @@
 import time
+import random
+def criar_vetor(tamanho):
+  return [random.randint(1, 1000) for _ in range(tamanho)]
 #A biblioteca time é utilizada para medir o tempo de execução dos métodos de ordenação.
 # Função de ordenação por inserção
 #primeiramente criamos um função com o nome Ordenação_inserç
@@ -44,12 +47,9 @@ def exibir_resultado(tempo_inicio, tempo_fim, vetor_ordenado, metodo):
     print(f"Vetor ordenado por {metodo}: {vetor_ordenado}") # Esta função exibe os resultados da ordenação, incluindo o tempo gasto e o vetor ordenado.
 
 def main():
-    entrada_usuario = input("Digite os números do vetor separados por vírgula: ")
-    try:
-        vetor_desordenado = [int(numero) for numero in entrada_usuario.split(',')] #não há um número máximo definido para o vetor. O tamanho do vetor é determinado pela entrada do usuário:
-    except ValueError:
-        print("Por favor, insira números inteiros separados por vírgula.")
-        return 
+    entrada_usuario = int(input("Entre com o tamanho do vetor: "))
+    vetor_desordenado = criar_vetor(entrada_usuario) #não há um número máximo definido para o vetor. O tamanho do vetor é determinado pela entrada do usuário:
+    
     print(f"\nVetor Desordenado: {vetor_desordenado}")
     while True:
         try:
